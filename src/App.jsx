@@ -2,7 +2,7 @@ import { useState } from 'react';
 import HomePage from './components/HomePage';
 import GamePage from './components/GamePage';
 import ResultPage from './components/ResultPage';
-import { fetchQuestions, submitAnswers } from './services/api';
+import { mockFetchQuestions, mockSubmitAnswers } from './services/api';
 import { config } from './utils/config';
 import './App.css';
 
@@ -34,7 +34,7 @@ function App() {
 
         try {
             // 撈取題目
-            const fetchedQuestions = await fetchQuestions(
+            const fetchedQuestions = await mockFetchQuestions(
                 config.questionBankSheet,
                 config.questionCount
             );
@@ -60,7 +60,7 @@ function App() {
 
         try {
             // 提交答案並計算成績
-            const gameResult = await submitAnswers(userId, answers, elapsedTime, isOvertime);
+            const gameResult = await mockSubmitAnswers(userId, answers, elapsedTime, isOvertime);
 
             setResult(gameResult);
             setGameState(GAME_STATE.RESULT);
