@@ -1,0 +1,420 @@
+/* Google Fonts - 手繪風格字體 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&family=Patrick+Hand&display=swap');
+
+/* CSS 變數系統 - 日式漫畫手繪風配色 */
+:root {
+  /* 配色方案 */
+  --color-paper: #F5F1E8;
+  --color-ink: #2D2D2D;
+  --color-accent: #8B7355;
+  --color-background: #FAFAF8;
+  --color-border: #D8D0C0;
+  --color-shadow: rgba(45, 45, 45, 0.15);
+
+  /* 字體 */
+  --font-main: 'Noto Sans TC', sans-serif;
+  --font-handwriting: 'Patrick Hand', cursive;
+
+  /* 間距 */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+
+  /* 圓角 */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  /* 陰影 */
+  --shadow-sm: 2px 2px 4px var(--color-shadow);
+  --shadow-md: 4px 4px 8px var(--color-shadow);
+  --shadow-lg: 6px 6px 12px var(--color-shadow);
+}
+
+/* 全域重置 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--color-background);
+  color: var(--color-ink);
+  line-height: 1.6;
+
+  /* 紙張質感背景 */
+  background-image:
+    repeating-linear-gradient(0deg,
+      transparent,
+      transparent 2px,
+      rgba(139, 115, 85, 0.02) 2px,
+      rgba(139, 115, 85, 0.02) 4px);
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 手繪風格按鈕 */
+.btn {
+  font-family: var(--font-main);
+  font-weight: 700;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border: 3px solid var(--color-ink);
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  filter: drop-shadow(var(--shadow-sm));
+
+  /* 手繪邊框效果 */
+  border-radius: var(--radius-sm);
+}
+
+.btn:hover {
+  transform: translate(-2px, -2px) rotate(-0.5deg);
+  filter: drop-shadow(var(--shadow-md));
+}
+
+.btn:active {
+  transform: translate(0, 0);
+  filter: drop-shadow(var(--shadow-sm));
+}
+
+.btn-primary {
+  background-color: var(--color-accent);
+  color: white;
+  border-color: var(--color-ink);
+}
+
+.btn-secondary {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  border-color: var(--color-accent);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  filter: grayscale(50%);
+}
+
+/* 手繪風格輸入框 */
+.input {
+  font-family: var(--font-main);
+  font-size: 1rem;
+  padding: var(--spacing-sm);
+  border: 3px solid var(--color-ink);
+  background-color: white;
+  color: var(--color-ink);
+  border-radius: var(--radius-sm);
+  transition: all 0.2s ease;
+  filter: drop-shadow(var(--shadow-sm));
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  transform: translate(-1px, -1px);
+  filter: drop-shadow(var(--shadow-md));
+}
+
+/* 漫畫對話框樣式 */
+.speech-bubble {
+  position: relative;
+  background-color: white;
+  border: 3px solid var(--color-ink);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-sm) var(--spacing-md);
+  filter: drop-shadow(var(--shadow-md));
+}
+
+.speech-bubble::before {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 30px;
+  width: 0;
+  height: 0;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-top: 15px solid var(--color-ink);
+}
+
+.speech-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 32px;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 12px solid white;
+}
+
+/* 卡片樣式 */
+.card {
+  background-color: var(--color-paper);
+  border: 3px solid var(--color-ink);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-lg);
+  filter: drop-shadow(var(--shadow-md));
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translate(-2px, -2px) rotate(-0.3deg);
+  filter: drop-shadow(var(--shadow-lg));
+}
+
+/* 容器 */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: var(--spacing-lg);
+  width: 100%;
+}
+
+/* 標題樣式 */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-main);
+  font-weight: 700;
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-ink);
+}
+
+h1 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: var(--spacing-lg);
+  position: relative;
+  display: inline-block;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+/* 進度條 */
+.progress-bar {
+  width: 100%;
+  height: 24px;
+  background-color: white;
+  border: 3px solid var(--color-ink);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  position: relative;
+  filter: drop-shadow(var(--shadow-sm));
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: var(--color-accent);
+  transition: width 0.3s ease;
+  position: relative;
+
+  /* 手繪條紋效果 */
+  background-image: repeating-linear-gradient(45deg,
+      transparent,
+      transparent 10px,
+      rgba(255, 255, 255, 0.1) 10px,
+      rgba(255, 255, 255, 0.1) 20px);
+}
+
+/* 網格佈局 */
+.grid {
+  display: grid;
+  gap: var(--spacing-md);
+}
+
+.grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-4 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media (min-width: 768px) {
+  .grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* 文字裝飾 */
+.text-handwriting {
+  font-family: var(--font-handwriting);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-large {
+  font-size: 1.25rem;
+}
+
+/* 動畫效果 */
+@keyframes shake {
+
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(-0.5deg);
+  }
+
+  75% {
+    transform: rotate(0.5deg);
+  }
+}
+
+.shake-on-hover:hover {
+  animation: shake 0.3s ease-in-out;
+}
+
+/* 手繪風格選項按鈕 */
+.option-btn {
+  font-family: var(--font-main);
+  font-size: 1rem;
+  padding: var(--spacing-sm);
+  border: 3px solid var(--color-ink);
+  background-color: white;
+  color: var(--color-ink);
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s ease;
+  border-radius: var(--radius-md);
+  filter: drop-shadow(var(--shadow-sm));
+  position: relative;
+}
+
+.option-btn:hover:not(:disabled) {
+  transform: translate(-2px, -2px) rotate(-0.3deg);
+  filter: drop-shadow(var(--shadow-md));
+  background-color: var(--color-paper);
+}
+
+.option-btn.selected {
+  background-color: var(--color-accent);
+  color: white;
+  border-color: var(--color-ink);
+  font-weight: 700;
+}
+
+.option-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* 關主頭像框 */
+.avatar-frame {
+  width: 100px;
+  height: 100px;
+  border: 3px solid var(--color-ink);
+  border-radius: 50%;
+  overflow: hidden;
+  filter: drop-shadow(var(--shadow-sm));
+  background-color: white;
+  position: relative;
+
+  /* 手繪圓形效果 */
+  clip-path: circle(48% at 50% 50%);
+}
+
+.avatar-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Loading 動畫 */
+.loading {
+  text-align: center;
+  padding: var(--spacing-xl);
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid var(--color-border);
+  border-top-color: var(--color-accent);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto var(--spacing-md);
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+  :root {
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .container {
+    padding: var(--spacing-sm);
+  }
+
+  .avatar-frame {
+    width: 80px;
+    height: 80px;
+    border-width: 2px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .avatar-frame {
+    width: 70px;
+    height: 70px;
+  }
+
+  .option-btn {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+}

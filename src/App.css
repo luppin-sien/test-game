@@ -1,0 +1,33 @@
+.app {
+  min-height: 100vh;
+}
+
+.error-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(45, 45, 45, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: var(--spacing-lg);
+}
+
+.error-card {
+  max-width: 500px;
+  text-align: center;
+  background-color: white;
+}
+
+.error-card h3 {
+  color: #D32F2F;
+  margin-bottom: var(--spacing-md);
+}
+
+.error-card p {
+  margin-bottom: var(--spacing-lg);
+  font-size: 1.1rem;
+}
